@@ -1,10 +1,13 @@
 package org.tienda.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,6 +31,16 @@ public class Persona {
     @Column(nullable = false, columnDefinition = "CHAR(1)")
     private String genero;
 
+    @ManyToMany
+    @JoinTable(
+            name = "persona_actividad",
+            joinColumns = @JoinColumn(name = "persona_id"),
+            inverseJoinColumns = @JoinColumn(name = "actividad_id")
+    )
+    @JsonIgnore
+    private Set<Actividad> actividades;
+
+    // Constructor
     public Persona(String nombre, String apellido, String celular, String genero) {
         this.nombre = nombre;
         this.apellido = apellido;
