@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "persona")
-public class Persona {
+public class PersonaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,10 +38,10 @@ public class Persona {
             inverseJoinColumns = @JoinColumn(name = "actividad_id")
     )
     @JsonIgnore
-    private Set<Actividad> actividades;
+    private Set<ActividadModel> actividades;
 
     // Constructor
-    public Persona(String nombre, String apellido, String celular, String genero) {
+    public PersonaModel(String nombre, String apellido, String celular, String genero) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;

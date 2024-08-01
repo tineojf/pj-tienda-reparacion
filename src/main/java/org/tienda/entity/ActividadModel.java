@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "actividad")
-public class Actividad {
+public class ActividadModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,10 +23,10 @@ public class Actividad {
     private String descripcion;
 
     @ManyToMany(mappedBy = "actividades")
-    private Set<Persona> personas;
+    private Set<PersonaModel> personas;
 
     // Constructor
-    public Actividad(String descripcion) {
+    public ActividadModel(String descripcion) {
         this.descripcion = descripcion;
     }
 
