@@ -2,6 +2,8 @@ package org.tienda.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.tienda.entity.ActividadModel;
+import org.tienda.exceptions.EntityAlreadyExistsException;
+import org.tienda.exceptions.EntityNotFoundException;
 import org.tienda.repository.ActividadRepository;
 
 import java.util.List;
@@ -17,51 +19,51 @@ public class ActividadService implements IService<ActividadModel> {
     }
 
     @Override
-    public ActividadModel findById(Long id) {
+    public ActividadModel findById(Long id) throws EntityNotFoundException {
         Optional<ActividadModel> actividadModel = actividadRepository.findById(id);
 
         if (actividadModel.isPresent()) {
             return actividadModel.get();
         } else {
-            // notfound
-            return null;
+            throw new EntityNotFoundException("Actividad", "id");
         }
     }
 
     @Override
-    public ActividadModel save(ActividadModel actividadModel) {
+    public ActividadModel save(ActividadModel actividadModel) throws EntityAlreadyExistsException {
         Optional<ActividadModel> actividadFindByAbreviatura = actividadRepository.findByAbreviatura(actividadModel.getAbreviatura());
 
         if (actividadFindByAbreviatura.isPresent()) {
-            // already exists
-            return null;
+            throw new EntityAlreadyExistsException("Actividad", "abreviatura");
         } else {
             return actividadRepository.save(actividadModel);
         }
     }
 
     @Override
-    public ActividadModel update(ActividadModel actividadModel) {
-        Optional<ActividadModel> actividadFindByAbreviatura = actividadRepository.findByAbreviatura(actividadModel.getAbreviatura());
-
-        if (actividadFindByAbreviatura.isPresent()) {
-            return actividadRepository.save(actividadModel);
-        } else {
-            // notfound
-            return null;
+    public ActividadModel update(ActividadModel actividadModel) throws EntityNotFoundException, EntityAlreadyExistsException {
+        Optional<ActividadModel> actividadFindById = actividadRepository.findById(actividadModel.getId());
+        if (actividadFindById.isEmpty()) {
+            throw new EntityNotFoundException("Actividad", "id");
         }
+
+        Optional<ActividadModel> actividadFindByAbreviatura = actividadRepository.findByAbreviatura(actividadModel.getAbreviatura());
+        if (actividadFindByAbreviatura.isPresent()) {
+            throw new EntityAlreadyExistsException("Actividad", "abreviatura");
+        }
+
+        return actividadRepository.save(actividadModel);
     }
 
     @Override
-    public ActividadModel delete(Long id) {
+    public ActividadModel delete(Long id) throws EntityNotFoundException {
         Optional<ActividadModel> actividadModel = actividadRepository.findById(id);
 
         if (actividadModel.isPresent()) {
             actividadRepository.deleteById(id);
             return actividadModel.get();
         } else {
-            // notfound
-            return null;
+            throw new EntityNotFoundException("Actividad", "id");
         }
     }
 }
