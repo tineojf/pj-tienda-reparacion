@@ -20,6 +20,9 @@ public class ActividadModel {
     private Long id;
 
     @Column(unique = true, nullable = false)
+    private String abreviatura;
+
+    @Column(nullable = false)
     private String descripcion;
 
     @ManyToMany(mappedBy = "actividades")
