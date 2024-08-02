@@ -8,311 +8,6 @@
 	},
 	"item": [
 		{
-			"name": "Actividades",
-			"item": [
-				{
-					"name": "GET-ALL",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/actividades",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"actividades"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "GET-ALL",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/actividades",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"actividades"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 02 Aug 2024 03:29:43 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Actividades encontradas\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"abreviatura\": \"VRL\",\n            \"descripcion\": \"Vende y Repara Laptops\"\n        },\n        {\n            \"id\": 2,\n            \"abreviatura\": \"VRLs\",\n            \"descripcion\": \"Vende sy Repara Laptops\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "POST",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"abreviatura\": \"VRL\",\n    \"descripcion\": \"Vende y Repara Laptops\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/actividades",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"actividades"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "POST",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"abreviatura\": \"VRL\",\n    \"descripcion\": \"Vende y Repara Laptops\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/actividades",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"actividades"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 02 Aug 2024 03:29:32 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Actividad guardada\",\n    \"data\": {\n        \"id\": 3,\n        \"abreviatura\": \"VRLss\",\n        \"descripcion\": \"Vende sy Repara Laptops\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "PUT",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"abreviatura\": \"VRC\",\n    \"descripcion\": \"Vende y Repara Celulares\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/actividades/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"actividades",
-								"2"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "PUT",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"abreviatura\": \"VRC\",\n    \"descripcion\": \"Vende y Repara Celulares\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "http://localhost:8080/actividades/2",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"actividades",
-										"2"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 02 Aug 2024 03:22:45 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Actividad actualizada\",\n    \"data\": {\n        \"id\": 2,\n        \"abreviatura\": \"VRC\",\n        \"descripcion\": \"Vende y Repara Celulares\",\n        \"personas\": null\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "DELETE",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/actividades/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"actividades",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "DELETE",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/actividades/3",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"actividades",
-										"3"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 02 Aug 2024 03:29:38 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Actividad eliminada\",\n    \"data\": {\n        \"id\": 3,\n        \"abreviatura\": \"VRLss\",\n        \"descripcion\": \"Vende sy Repara Laptops\"\n    }\n}"
-						}
-					]
-				}
-			]
-		},
-		{
 			"name": "Personas",
 			"item": [
 				{
@@ -339,14 +34,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/persona",
+									"raw": "http://localhost:8080/personas",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"persona"
+										"personas"
 									]
 								}
 							},
@@ -364,7 +59,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 01 Aug 2024 17:17:40 GMT"
+									"value": "Fri, 02 Aug 2024 04:25:57 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -376,7 +71,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Personas encontradas\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Timmy\",\n            \"apellido\": \"Turner\",\n            \"celular\": \"+51 953 1278 232\",\n            \"genero\": \"M\"\n        }\n    ]\n}"
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Personas encontradas\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"nombre\": \"Don\",\n            \"apellido\": \"Dimadon\",\n            \"celular\": \"+51 953 1278 232\",\n            \"genero\": \"M\",\n            \"tutor\": null,\n            \"pformateo\": false,\n            \"plimpieza\": false,\n            \"pdesinfeccion\": false,\n            \"pdiagnosticar\": false,\n            \"pcambios\": false,\n            \"nformateo\": false,\n            \"nlimpieza\": false,\n            \"ndesinfeccion\": false,\n            \"ndiagnosticar\": false,\n            \"ncambios\": false,\n            \"cflasheo\": false,\n            \"cbateria\": false,\n            \"cpantalla\": false,\n            \"cvidrio\": false,\n            \"arecibir\": false,\n            \"apresupuestar\": false,\n            \"aventa\": false,\n            \"acompra\": false\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -387,7 +82,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\":\"Timmy\",\n    \"apellido\":\"Turner\",\n    \"celular\":\"+51 953 1278 232\",\n    \"genero\":\"M\"\n}",
+							"raw": "{\n    \"nombre\": \"Don\",\n    \"apellido\": \"Dimadon\",\n    \"celular\": \"+51 953 1278 232\",\n    \"genero\": \"M\",\n    \"tutor\": null,\n    \"pformateo\": false,\n    \"plimpieza\": false,\n    \"pdesinfeccion\": false,\n    \"pdiagnosticar\": false,\n    \"pcambios\": false,\n    \"nformateo\": false,\n    \"nlimpieza\": false,\n    \"ndesinfeccion\": false,\n    \"ndiagnosticar\": false,\n    \"ncambios\": false,\n    \"cflasheo\": false,\n    \"cbateria\": false,\n    \"cpantalla\": false,\n    \"cvidrio\": false,\n    \"arecibir\": false,\n    \"apresupuestar\": false,\n    \"aventa\": false,\n    \"acompra\": false\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -414,7 +109,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"nombre\":\"Timmy\",\n    \"apellido\":\"Turner\",\n    \"celular\":\"+51 953 1278 232\",\n    \"genero\":\"M\"\n}",
+									"raw": "{\n    \"nombre\": \"Don\",\n    \"apellido\": \"Dimadon\",\n    \"celular\": \"+51 953 1278 232\",\n    \"genero\": \"M\",\n    \"tutor\": null,\n    \"pformateo\": false,\n    \"plimpieza\": false,\n    \"pdesinfeccion\": false,\n    \"pdiagnosticar\": false,\n    \"pcambios\": false,\n    \"nformateo\": false,\n    \"nlimpieza\": false,\n    \"ndesinfeccion\": false,\n    \"ndiagnosticar\": false,\n    \"ncambios\": false,\n    \"cflasheo\": false,\n    \"cbateria\": false,\n    \"cpantalla\": false,\n    \"cvidrio\": false,\n    \"arecibir\": false,\n    \"apresupuestar\": false,\n    \"aventa\": false,\n    \"acompra\": false\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -422,14 +117,14 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/persona",
+									"raw": "http://localhost:8080/personas",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"persona"
+										"personas"
 									]
 								}
 							},
@@ -447,7 +142,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 01 Aug 2024 17:17:34 GMT"
+									"value": "Fri, 02 Aug 2024 04:25:48 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -459,7 +154,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona guardada\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Timmy\",\n        \"apellido\": \"Turner\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"M\"\n    }\n}"
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona guardada\",\n    \"data\": {\n        \"id\": 2,\n        \"nombre\": \"Don\",\n        \"apellido\": \"Dimadon\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"M\",\n        \"tutor\": null,\n        \"pformateo\": false,\n        \"plimpieza\": false,\n        \"pdesinfeccion\": false,\n        \"pdiagnosticar\": false,\n        \"pcambios\": false,\n        \"nformateo\": false,\n        \"nlimpieza\": false,\n        \"ndesinfeccion\": false,\n        \"ndiagnosticar\": false,\n        \"ncambios\": false,\n        \"cflasheo\": false,\n        \"cbateria\": false,\n        \"cpantalla\": false,\n        \"cvidrio\": false,\n        \"arecibir\": false,\n        \"apresupuestar\": false,\n        \"aventa\": false,\n        \"acompra\": false\n    }\n}"
 						}
 					]
 				},
@@ -469,7 +164,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/personas/1",
+							"raw": "http://localhost:8080/personas/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -477,7 +172,7 @@
 							"port": "8080",
 							"path": [
 								"personas",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -488,15 +183,15 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8080/persona/1",
+									"raw": "http://localhost:8080/personas/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"persona",
-										"1"
+										"personas",
+										"2"
 									]
 								}
 							},
@@ -514,7 +209,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 01 Aug 2024 17:18:19 GMT"
+									"value": "Fri, 02 Aug 2024 04:26:23 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -526,7 +221,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona encontrada\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Timmy\",\n        \"apellido\": \"Turner\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"M\"\n    }\n}"
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona encontrada\",\n    \"data\": {\n        \"id\": 2,\n        \"nombre\": \"Don\",\n        \"apellido\": \"Dimadon\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"M\",\n        \"tutor\": null,\n        \"pformateo\": false,\n        \"plimpieza\": false,\n        \"pdesinfeccion\": false,\n        \"pdiagnosticar\": false,\n        \"pcambios\": false,\n        \"nformateo\": false,\n        \"nlimpieza\": false,\n        \"ndesinfeccion\": false,\n        \"ndiagnosticar\": false,\n        \"ncambios\": false,\n        \"cflasheo\": false,\n        \"cbateria\": false,\n        \"cpantalla\": false,\n        \"cvidrio\": false,\n        \"arecibir\": false,\n        \"apresupuestar\": false,\n        \"aventa\": false,\n        \"acompra\": false\n    }\n}"
 						}
 					]
 				},
@@ -537,7 +232,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\":\"Leonila\",\n    \"apellido\":\"Leon\",\n    \"celular\":\"+51 953 1278 232\",\n    \"genero\":\"F\"\n}",
+							"raw": "{\n    \"nombre\":\"Leonila\",\n    \"apellido\":\"Leon\",\n    \"celular\":\"+51 953 1278 232\",\n    \"genero\":\"G\",\n    \"tutor\": \"Timmy 2\",\n    \"pformateo\": true,\n    \"plimpieza\": true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -545,7 +240,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/personas/1",
+							"raw": "http://localhost:8080/personas/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -553,7 +248,7 @@
 							"port": "8080",
 							"path": [
 								"personas",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -573,14 +268,81 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8080/persona/1",
+									"raw": "http://localhost:8080/personas/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "8080",
 									"path": [
-										"persona",
+										"personas",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 02 Aug 2024 04:26:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona actualizada\",\n    \"data\": {\n        \"id\": 2,\n        \"nombre\": \"Leonila\",\n        \"apellido\": \"Leon\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"F\",\n        \"tutor\": null,\n        \"pformateo\": null,\n        \"plimpieza\": null,\n        \"pdesinfeccion\": null,\n        \"pdiagnosticar\": null,\n        \"pcambios\": null,\n        \"nformateo\": null,\n        \"nlimpieza\": null,\n        \"ndesinfeccion\": null,\n        \"ndiagnosticar\": null,\n        \"ncambios\": null,\n        \"cflasheo\": null,\n        \"cbateria\": null,\n        \"cpantalla\": null,\n        \"cvidrio\": null,\n        \"arecibir\": null,\n        \"apresupuestar\": null,\n        \"aventa\": null,\n        \"acompra\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/personas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"personas",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/personas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"personas",
 										"1"
 									]
 								}
@@ -599,7 +361,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Thu, 01 Aug 2024 17:19:42 GMT"
+									"value": "Fri, 02 Aug 2024 04:25:35 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -611,74 +373,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona actualizada\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Leonila\",\n        \"apellido\": \"Leon\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"F\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "DELETE",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/personas/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"personas",
-								"3"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "DELETE",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:8080/persona/3",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"persona",
-										"3"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 01 Aug 2024 17:20:23 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona eliminada\",\n    \"data\": {\n        \"id\": 3,\n        \"nombre\": \"Timmy3\",\n        \"apellido\": \"Turn3er\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"M\"\n    }\n}"
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Persona eliminada\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Don\",\n        \"apellido\": \"Dimadon\",\n        \"celular\": \"+51 953 1278 232\",\n        \"genero\": \"M\",\n        \"tutor\": null,\n        \"pformateo\": false,\n        \"plimpieza\": false,\n        \"pdesinfeccion\": false,\n        \"pdiagnosticar\": false,\n        \"pcambios\": false,\n        \"nformateo\": false,\n        \"nlimpieza\": false,\n        \"ndesinfeccion\": false,\n        \"ndiagnosticar\": false,\n        \"ncambios\": false,\n        \"cflasheo\": false,\n        \"cbateria\": false,\n        \"cpantalla\": false,\n        \"cvidrio\": false,\n        \"arecibir\": false,\n        \"apresupuestar\": false,\n        \"aventa\": false,\n        \"acompra\": false\n    }\n}"
 						}
 					]
 				}
