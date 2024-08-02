@@ -15,11 +15,13 @@ async function dataPerson(_url, _token = null, _method = 'GET', _body = null) {
     console.log(error);
   }
 }
-async function loadData(personaID) {
+async function loadData(personaID, condition) {
   const btnFormCreate = document.getElementById('btn-form-create');
   btnFormCreate.style.display = 'none';
   const btnFormUpdate = document.getElementById('btn-form-update');
   btnFormUpdate.style.display = 'block';
+
+  functionInputs(condition);
 
   const URLPersonas = `/personas/${personaID}`;
   const data = await dataPerson(URLPersonas);
@@ -151,6 +153,36 @@ async function updatePerson() {
       });
     }
   });
+}
+
+function functionInputs(condition) {
+  document.getElementById('nombre').disabled = condition;
+  document.getElementById('apellido').disabled = condition;
+  document.getElementById('celular').disabled = condition;
+  document.getElementById('genero').disabled = condition;
+  document.getElementById('tutor').disabled = condition;
+
+  document.getElementById('pFormateo').disabled = condition;
+  document.getElementById('pLimpieza').disabled = condition;
+  document.getElementById('pDesinfeccion').disabled = condition;
+  document.getElementById('pDiagnosticar').disabled = condition;
+  document.getElementById('pCambios').disabled = condition;
+
+  document.getElementById('nFormateo').disabled = condition;
+  document.getElementById('nLimpieza').disabled = condition;
+  document.getElementById('nDesinfeccion').disabled = condition;
+  document.getElementById('nDiagnosticar').disabled = condition;
+  document.getElementById('nCambios').disabled = condition;
+
+  document.getElementById('cFlasheo').disabled = condition;
+  document.getElementById('cBateria').disabled = condition;
+  document.getElementById('cPantalla').disabled = condition;
+  document.getElementById('cVidrio').disabled = condition;
+
+  document.getElementById('aRecibir').disabled = condition;
+  document.getElementById('aPresupuestar').disabled = condition;
+  document.getElementById('aVenta').disabled = condition;
+  document.getElementById('aCompra').disabled = condition;
 }
 
 const btnFormUpdate = document.getElementById('btn-form-update');

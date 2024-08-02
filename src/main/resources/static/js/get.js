@@ -88,10 +88,10 @@ function loadHTML(data) {
 
       const html_Li = `<a href="list.html">
                           <i class="uil uil-user"></i>
-                          <a href="#" class="a-name" onclick="loadData(${id})">${apellido} ${nombre}</a>
+                          <a href="#" class="a-name" onclick="loadData(${id}, true)">${apellido} ${nombre}</a>
                         </a>
                         <span class="person-span-options">
-                          <a href="#" onclick="loadData(${id})"><i class="uil uil-edit a-success" id="${id}"></i></a>
+                          <a href="#" onclick="loadData(${id}, false)"><i class="uil uil-edit a-success" id="${id}"></i></a>
                           <a href="#" onclick="deletePerson(${id})"><i class="uil uil-trash-alt a-danger" id="${id}"></i></a>
                         </span>`
       const li = document.createElement('li');
