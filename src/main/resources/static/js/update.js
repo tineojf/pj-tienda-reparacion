@@ -16,6 +16,11 @@ async function dataPerson(_url, _token = null, _method = 'GET', _body = null) {
   }
 }
 async function loadData(personaID) {
+  const btnFormCreate = document.getElementById('btn-form-create');
+  btnFormCreate.style.display = 'none';
+  const btnFormUpdate = document.getElementById('btn-form-update');
+  btnFormUpdate.style.display = 'block';
+
   const URLPersonas = `/personas/${personaID}`;
   const data = await dataPerson(URLPersonas);
 

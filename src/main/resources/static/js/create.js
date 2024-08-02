@@ -92,8 +92,44 @@ async function createPaciente() {
   }
 }
 
-const formcreate = document.getElementById('form-post-paciente');
-formcreate.addEventListener('submit', async (e) => {
+const btnAddPerson = document.getElementById('btn-add-person');
+btnAddPerson.addEventListener('click', async () => {
+  const btnUpdate = document.getElementById('btn-form-update');
+  btnUpdate.style.display = 'none';
+  const btnCreate = document.getElementById('btn-form-create');
+  btnCreate.style.display = 'block';
+
+  document.getElementById('nombre').value = '';
+  document.getElementById('apellido').value = '';
+  document.getElementById('celular').value = '';
+  document.getElementById('genero').value = 'M';
+  document.getElementById('tutor').value = '';
+
+  document.getElementById('pFormateo').checked = false;
+  document.getElementById('pLimpieza').checked = false;
+  document.getElementById('pDesinfeccion').checked = false;
+  document.getElementById('pDiagnosticar').checked = false;
+  document.getElementById('pCambios').checked = false;
+
+  document.getElementById('nFormateo').checked = false;
+  document.getElementById('nLimpieza').checked = false;
+  document.getElementById('nDesinfeccion').checked = false;
+  document.getElementById('nDiagnosticar').checked = false;
+  document.getElementById('nCambios').checked = false;
+
+  document.getElementById('cFlasheo').checked = false;
+  document.getElementById('cBateria').checked = false;
+  document.getElementById('cPantalla').checked = false;
+  document.getElementById('cVidrio').checked = false;
+
+  document.getElementById('aRecibir').checked = false;
+  document.getElementById('aPresupuestar').checked = false;
+  document.getElementById('aVenta').checked = false;
+  document.getElementById('aCompra').checked = false;
+});
+
+const btnFormCreate = document.getElementById('btn-form-create');
+btnFormCreate.addEventListener('click', async (e) => {
   e.preventDefault();
   createPaciente();
 });

@@ -73,6 +73,8 @@ inputSearch.addEventListener('keyup', async (e) => {
 });
 
 window.onload = async () => {
+  const btnFormUpdate = document.getElementById('btn-form-update');
+  btnFormUpdate.style.display = 'none';
   loadPerson();
 }
 
@@ -86,7 +88,7 @@ function loadHTML(data) {
 
       const html_Li = `<a href="list.html">
                           <i class="uil uil-user"></i>
-                          <span class="person-span-name">${apellido} ${nombre}</span>
+                          <a href="#" class="person-span-name" onclick="loadData(${id})">${apellido} ${nombre}</a>
                         </a>
                         <span class="person-span-options">
                           <a href="#" onclick="loadData(${id})"><i class="uil uil-edit a-success" id="${id}"></i></a>

@@ -118,6 +118,11 @@ hr {
   background-color: var(--success-color);
 }
 
+.btn-update {
+  background-color: rgb(242, 242, 12);
+  color: #000;
+}
+
 .a-success {
   color: var(--primary-color);
 }
