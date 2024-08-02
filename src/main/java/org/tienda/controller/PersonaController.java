@@ -101,4 +101,20 @@ public class PersonaController {
         }
     }
 
+    @GetMapping("/search/{param}")
+    public ResponseEntity<CustomResponse> findByNameRegEx(@PathVariable String param) {
+        try {
+            List<PersonaModel> personas = personaService.findByNameRegEx(param);
+            CustomResponse cr;
+            if (personas.isEmpty()) {
+                cr = new CustomResponse(true, "No hay personas registradas", "Empty list");
+            } else {
+                cr = new CustomResponse(true, "Personas encontradas", personas);
+            }
+            return ResponseEntity.status(200).body(cr);
+        } catch (Exception e) {
+            CustomResponse cr = new CustomResponse(false, "ERROR DB", e.getMessage());
+            return ResponseEntity.status(500).body(cr);
+        }
+    }
 }
