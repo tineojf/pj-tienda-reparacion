@@ -3,28 +3,28 @@ package org.tienda.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.tienda.entity.PersonaModel;
+import org.tienda.entity.ActividadModel;
 import org.tienda.exceptions.EntityAlreadyExistsException;
 import org.tienda.exceptions.EntityNotFoundException;
-import org.tienda.service.PersonaService;
+import org.tienda.service.ActividadService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/personas")
-public class PersonaController {
+@RequestMapping("/actividades")
+public class ActividadController {
     @Autowired
-    private PersonaService personaService;
+    private ActividadService actividadService;
 
     @GetMapping
-    public ResponseEntity<CustomResponse> getPersona() {
+    public ResponseEntity<CustomResponse> getActividad() {
         try {
-            List<PersonaModel> personas = personaService.findAll();
+            List<ActividadModel> actividades = actividadService.findAll();
             CustomResponse cr;
-            if (personas.isEmpty()) {
-                cr = new CustomResponse(true, "No hay personas registradas", "Empty list");
+            if (actividades.isEmpty()) {
+                cr = new CustomResponse(true, "No hay actividades registradas", "Empty list");
             } else {
-                cr = new CustomResponse(true, "Personas encontradas", personas);
+                cr = new CustomResponse(true, "Actividades encontradas", actividades);
             }
             return ResponseEntity.status(200).body(cr);
         } catch (Exception e) {
@@ -34,14 +34,14 @@ public class PersonaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CustomResponse> getPersonaById(@PathVariable Long id) {
+    public ResponseEntity<CustomResponse> getActividadById(@PathVariable Long id) {
         try {
-            PersonaModel persona = personaService.findById(id);
-            CustomResponse cr = new CustomResponse(true, "Persona encontrada", persona);
+            ActividadModel actividad = actividadService.findById(id);
+            CustomResponse cr = new CustomResponse(true, "Actividad encontrada", actividad);
             return ResponseEntity.status(200).body(cr);
 
         } catch (EntityNotFoundException e) {
-            CustomResponse cr = new CustomResponse(false, "Persona no encontrada", e.getMessage());
+            CustomResponse cr = new CustomResponse(false, "Actividad no encontrada", e.getMessage());
             return ResponseEntity.status(404).body(cr);
         } catch (Exception e) {
             CustomResponse cr = new CustomResponse(false, "ERROR DB", e.getMessage());
@@ -50,14 +50,14 @@ public class PersonaController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomResponse> savePersona(@RequestBody PersonaModel personaModel) {
+    public ResponseEntity<CustomResponse> saveActividad(@RequestBody ActividadModel actividadModel) {
         try {
-            PersonaModel persona = personaService.save(personaModel);
-            CustomResponse cr = new CustomResponse(true, "Persona guardada", persona);
+            ActividadModel actividad = actividadService.save(actividadModel);
+            CustomResponse cr = new CustomResponse(true, "Actividad guardada", actividad);
             return ResponseEntity.status(201).body(cr);
 
         } catch (EntityAlreadyExistsException e) {
-            CustomResponse cr = new CustomResponse(false, "Persona ya existe", e.getMessage());
+            CustomResponse cr = new CustomResponse(false, "Actividad ya existe", e.getMessage());
             return ResponseEntity.status(400).body(cr);
         } catch (Exception e) {
             CustomResponse cr = new CustomResponse(false, "ERROR DB", e.getMessage());
@@ -66,18 +66,18 @@ public class PersonaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CustomResponse> updatePersona(@PathVariable Long id, @RequestBody PersonaModel personaModel) {
+    public ResponseEntity<CustomResponse> updateActividad(@PathVariable Long id, @RequestBody ActividadModel actividadModel) {
         try {
-            personaModel.setId(id);
-            PersonaModel persona = personaService.update(personaModel);
-            CustomResponse cr = new CustomResponse(true, "Persona actualizada", persona);
+            actividadModel.setId(id);
+            ActividadModel actividad = actividadService.update(actividadModel);
+            CustomResponse cr = new CustomResponse(true, "Actividad actualizada", actividad);
             return ResponseEntity.status(200).body(cr);
 
         } catch (EntityNotFoundException e) {
-            CustomResponse cr = new CustomResponse(false, "Persona no encontrada", e.getMessage());
+            CustomResponse cr = new CustomResponse(false, "Actividad no encontrada", e.getMessage());
             return ResponseEntity.status(404).body(cr);
         } catch (EntityAlreadyExistsException e) {
-            CustomResponse cr = new CustomResponse(false, "Persona ya existe", e.getMessage());
+            CustomResponse cr = new CustomResponse(false, "Actividad ya existe", e.getMessage());
             return ResponseEntity.status(400).body(cr);
         } catch (Exception e) {
             CustomResponse cr = new CustomResponse(false, "ERROR DB", e.getMessage());
@@ -86,19 +86,18 @@ public class PersonaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CustomResponse> deletePersona(@PathVariable Long id) {
+    public ResponseEntity<CustomResponse> deleteActividad(@PathVariable Long id) {
         try {
-            PersonaModel persona = personaService.delete(id);
-            CustomResponse cr = new CustomResponse(true, "Persona eliminada", persona);
+            ActividadModel actividad = actividadService.delete(id);
+            CustomResponse cr = new CustomResponse(true, "Actividad eliminada", actividad);
             return ResponseEntity.status(200).body(cr);
 
         } catch (EntityNotFoundException e) {
-            CustomResponse cr = new CustomResponse(false, "Persona no encontrada", e.getMessage());
+            CustomResponse cr = new CustomResponse(false, "Actividad no encontrada", e.getMessage());
             return ResponseEntity.status(404).body(cr);
         } catch (Exception e) {
             CustomResponse cr = new CustomResponse(false, "ERROR DB", e.getMessage());
             return ResponseEntity.status(500).body(cr);
         }
     }
-
 }

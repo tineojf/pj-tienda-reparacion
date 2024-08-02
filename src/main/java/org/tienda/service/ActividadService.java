@@ -1,6 +1,7 @@
 package org.tienda.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.tienda.entity.ActividadModel;
 import org.tienda.exceptions.EntityAlreadyExistsException;
 import org.tienda.exceptions.EntityNotFoundException;
@@ -9,6 +10,7 @@ import org.tienda.repository.ActividadRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ActividadService implements IService<ActividadModel> {
     @Autowired
     private ActividadRepository actividadRepository;

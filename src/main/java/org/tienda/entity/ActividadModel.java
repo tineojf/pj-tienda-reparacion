@@ -1,5 +1,6 @@
 package org.tienda.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,7 @@ public class ActividadModel {
     private String descripcion;
 
     @ManyToMany(mappedBy = "actividades")
+    @JsonIgnore
     private Set<PersonaModel> personas;
 
     // Constructor
