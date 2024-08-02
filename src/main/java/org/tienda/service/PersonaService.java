@@ -70,4 +70,8 @@ public class PersonaService implements IService<PersonaModel> {
             throw new EntityNotFoundException("Persona", "id");
         }
     }
+
+    public List<PersonaModel> findByNameRegEx(String param) {
+        return personaRepository.findByNameRegEx(param);
+    }
 }
