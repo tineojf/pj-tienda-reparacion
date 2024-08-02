@@ -25,6 +25,8 @@ async function loadData(personaID) {
   const data = await dataPerson(URLPersonas);
 
   if (data.ok && data.data != 'Empty list') {
+    document.getElementById('input-id').value = data.data.id;
+
     document.getElementById('nombre').value = data.data.nombre;
     document.getElementById('apellido').value = data.data.apellido;
     document.getElementById('celular').value = data.data.celular;
@@ -61,25 +63,59 @@ async function loadData(personaID) {
   }
 }
 
-async function updatePerson2() {
-  const personaID = window.location.search.split('=')[1];
+async function updatePerson() {
   const nombre = document.getElementById('nombre').value;
   const apellido = document.getElementById('apellido').value;
-  const dni = document.getElementById('dni').value;
-  const fechaIngreso = document.getElementById('ingreso').value;
-  const domicilio = {
-    calle: document.getElementById('calle').value,
-    numero: document.getElementById('numero').value,
-    localidad: document.getElementById('localidad').value,
-    provincia: document.getElementById('provincia').value
-  };
+  const celular = document.getElementById('celular').value;
+  const genero = document.getElementById('genero').value;
+  const tutor = document.getElementById('tutor').value;
+
+  const pFormateo = document.getElementById('pFormateo').checked;
+  const pLimpieza = document.getElementById('pLimpieza').checked;
+  const pDesinfeccion = document.getElementById('pDesinfeccion').checked;
+  const pDiagnosticar = document.getElementById('pDiagnosticar').checked;
+  const pCambios = document.getElementById('pCambios').checked;
+
+  const nFormateo = document.getElementById('nFormateo').checked;
+  const nLimpieza = document.getElementById('nLimpieza').checked;
+  const nDesinfeccion = document.getElementById('nDesinfeccion').checked;
+  const nDiagnosticar = document.getElementById('nDiagnosticar').checked;
+  const nCambios = document.getElementById('nCambios').checked;
+
+  const cFlasheo = document.getElementById('cFlasheo').checked;
+  const cBateria = document.getElementById('cBateria').checked;
+  const cPantalla = document.getElementById('cPantalla').checked;
+  const cVidrio = document.getElementById('cVidrio').checked;
+
+  const aRecibir = document.getElementById('aRecibir').checked;
+  const aPresupuestar = document.getElementById('aPresupuestar').checked;
+  const aVenta = document.getElementById('aVenta').checked;
+  const aCompra = document.getElementById('aCompra').checked;
 
   const body = {
     nombre,
     apellido,
-    dni,
-    fechaIngreso,
-    domicilio
+    celular,
+    genero,
+    tutor,
+    pformateo: pFormateo,
+    plimpieza: pLimpieza,
+    pdesinfeccion: pDesinfeccion,
+    pdiagnosticar: pDiagnosticar,
+    pcambios: pCambios,
+    nformateo: nFormateo,
+    nlimpieza: nLimpieza,
+    ndesinfeccion: nDesinfeccion,
+    ndiagnosticar: nDiagnosticar,
+    ncambios: nCambios,
+    cflasheo: cFlasheo,
+    cbateria: cBateria,
+    cpantalla: cPantalla,
+    cvidrio: cVidrio,
+    arecibir: aRecibir,
+    apresupuestar: aPresupuestar,
+    aventa: aVenta,
+    acompra: aCompra
   };
 
   Swal.fire({
@@ -92,6 +128,7 @@ async function updatePerson2() {
 
   }).then(async (result) => {
     if (result.isConfirmed) {
+      const personaID = document.getElementById('input-id').value;
       const URLPerson = `/personas/${personaID}`;
       const data = await dataPersonas(URLPerson, null, 'PUT', body);
 
@@ -116,8 +153,8 @@ async function updatePerson2() {
   });
 }
 
-const formupdate = document.getElementById('form-update-paciente');
-formupdate.addEventListener('submit', async (e) => {
+const btnFormUpdate = document.getElementById('btn-form-update');
+btnFormUpdate.addEventListener('click', async (e) => {
   e.preventDefault();
   updatePerson();
 });
