@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheet & icons -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link rel="icon" href="../../images/tab.png" type="image/x-icon" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Tienda</title>
+
+    <style>
+      .form-columns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo-name">
+        <div class="logo-image">
+          <img src="../../images/icon.png" alt="bar" />
+        </div>
+
+        <span class="logo_name">Test Assignment</span>
+      </div>
+
+      <div class="menu-items">
+        <ul class="nav-links">
+          <li>
+            <input
+              type="text"
+              name="nombreapellido"
+              id="nombreapellido"
+              placeholder="Búsqueda"
+              required
+              class="form-input"
+            />
+          </li>
+          <span id="ul-list-person"></span>
+          <li>
+            <a href="list.html">
+              <i class="uil uil-user"></i>
+              <span class="link-name">Iniciossssasss</span>
+              <a href="#" class="a-update"><i class="uil uil-edit"></i></a>
+              <a href="#" class="a-delete"><i class="uil uil-trash-alt"></i></a>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="logout-mode">
+          <li class="mode">
+            <a href="#">
+              <i class="uil uil-moon"></i>
+              <span class="link-name">Dark Mode</span>
+            </a>
+
+            <div class="mode-toggle">
+              <span class="switch"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="dashboard">
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+        <img src="../../images/profile.png" alt="profile" />
+      </div>
+
+      <div class="dash-content">
+        <div class="activity mr">
+          <div class="title">
+            <i class="uil uil-plus-circle"></i>
+            <span class="text">Datos Personales</span>
+          </div>
+        </div>
+
+        <div class="content ml">
+          <form method="POST" id="form-post-paciente">
+            <div class="form-columns">
+              <div>
+                <span class="details"><strong>Nombre:</strong></span>
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  placeholder="Ingresa nombre"
+                  required
+                  class="form-input"
+                />
+              </div>
+
+              <div>
+                <span class="details"><strong>Apellidos:</strong></span>
+                <input
+                  type="text"
+                  name="apellido"
+                  id="apellido"
+                  placeholder="Ingresa apellido"
+                  required
+                  class="form-input"
+                />
+              </div>
+
+              <div>
+                <span class="details"><strong>Celular:</strong></span>
+                <input
+                  type="text"
+                  name="celular"
+                  id="celular"
+                  placeholder="Ingresa celular"
+                  class="form-input"
+                />
+              </div>
+
+              <div>
+                <span class="details"><strong>Género:</strong></span>
+                <select name="genero" id="genero" class="form-input">
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                </select>
+              </div>
+
+              <div>
+                <span class="details"><strong>Tutor:</strong></span>
+                <input
+                  type="text"
+                  name="tutor"
+                  id="tutor"
+                  placeholder="Ingresa tutor"
+                  class="form-input"
+                />
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <span class="details"><strong>PC de Escritorio:</strong></span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr)">
+              <div>
+                <input
+                  type="checkbox"
+                  name="pFormateo"
+                  id="pFormateo"
+                  class="form-input"
+                />
+                <label for="pFormateo">Formateo</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="pLimpieza"
+                  id="pLimpieza"
+                  class="form-input"
+                />
+                <label for="pLimpieza">Limpieza</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="pDesinfeccion"
+                  id="pDesinfeccion"
+                  class="form-input"
+                />
+                <label for="pDesinfeccion">Desinfeccion</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="pDiagnosticar"
+                  id="pDiagnosticar"
+                  class="form-input"
+                />
+                <label for="pDiagnosticar">Diagnosticar</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="pCambios"
+                  id="pCambios"
+                  class="form-input"
+                />
+                <label for="pCambios">Cambios</label>
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <span class="details"><strong>Notebook:</strong></span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr)">
+              <div>
+                <input
+                  type="checkbox"
+                  name="nFormateo"
+                  id="nFormateo"
+                  class="form-input"
+                />
+                <label for="nFormateo">Formateo</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="nLimpieza"
+                  id="nLimpieza"
+                  class="form-input"
+                />
+                <label for="nLimpieza">Limpieza</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="nDesinfeccion"
+                  id="nDesinfeccion"
+                  class="form-input"
+                />
+                <label for="nDesinfeccion">Desinfeccion</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="nDiagnosticar"
+                  id="nDiagnosticar"
+                  class="form-input"
+                />
+                <label for="nDiagnosticar">Diagnosticar</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="nCambios"
+                  id="nCambios"
+                  class="form-input"
+                />
+                <label for="nCambios">Cambios</label>
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <span class="details"><strong>Celulares:</strong></span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr)">
+              <div>
+                <input
+                  type="checkbox"
+                  name="cFlasheo"
+                  id="cFlasheo"
+                  class="form-input"
+                />
+                <label for="cFlasheo">Flasheo</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cBateria"
+                  id="cBateria"
+                  class="form-input"
+                />
+                <label for="cBateria">Bateria</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cPantalla"
+                  id="cPantalla"
+                  class="form-input"
+                />
+                <label for="cPantalla">Pantalla</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cVidrio"
+                  id="cVidrio"
+                  class="form-input"
+                />
+                <label for="cVidrio">Vidrio</label>
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <span class="details"><strong>Atención al público:</strong></span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr)">
+              <div>
+                <input
+                  type="checkbox"
+                  name="aRecibir"
+                  id="aRecibir"
+                  class="form-input"
+                />
+                <label for="aRecibir">Recibir</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="aPresupuestar"
+                  id="aPresupuestar"
+                  class="form-input"
+                />
+                <label for="aPresupuestar">Presupuestar</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="aVenta"
+                  id="aVenta"
+                  class="form-input"
+                />
+                <label for="aVenta">Venta</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="aCompra"
+                  id="aCompra"
+                  class="form-input"
+                />
+                <label for="aCompra">Compra</label>
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <button type="submit" class="btn btn-primary btn-large">
+                Registrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../../app.js"></script>
+    <script src="../../js/pacientes/get.js"></script>
+  </body>
+</html>
