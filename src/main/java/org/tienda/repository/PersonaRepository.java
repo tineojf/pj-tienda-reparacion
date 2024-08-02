@@ -15,6 +15,6 @@ public interface PersonaRepository extends JpaRepository<PersonaModel, Long> {
 
     Optional<PersonaModel> findByApellido(String apellido);
 
-    @Query("SELECT o FROM persona o WHERE LOWER(CONCAT(o.apellido, ' ', o.nombre)) LIKE LOWER(CONCAT('%', :param, '%'))")
+    @Query("SELECT o FROM PersonaModel o WHERE LOWER(CONCAT(o.apellido, ' ', o.nombre)) LIKE LOWER(CONCAT('%', :param, '%'))")
     List<PersonaModel> findByNameRegEx(@Param("param") String param);
 }
