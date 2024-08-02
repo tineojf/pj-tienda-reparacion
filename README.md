@@ -2,7 +2,7 @@
 
 El proyecto fue hecho en IntelliJ IDEA, con Spring Boot, MySQL, Spring Data JPA, Spring Web, Lombok, HTML, CSS,
 JavaScript. Es recomendable abrir la carpeta en ese IDE y cumplir los **Requerimientos** para poder ejecutar el
-proyecto.
+proyecto. Puede importar la documentación de la API a Postman en la carpeta `postman`
 
 ## Funcionalidades
 
@@ -46,6 +46,8 @@ proyecto.
   ```
 
 ## Endpoints
+
+Puede encontrar como se formulan los endpoints en el archivo `postman` en la carpeta raíz del proyecto.
 
 - Frontend http://localhost:8080/
 - API - GET http://localhost:8080/personas
