@@ -1,6 +1,6 @@
 const URLPersona = '/personas';
 
-async function fetchPacientes(_url, _token = null, _method = 'GET', _body = null) {
+async function fetchPerson(_url, _token = null, _method = 'GET', _body = null) {
   const options = {
     method: _method,
     headers: { "Content-Type": "application/json" }
@@ -17,18 +17,18 @@ async function fetchPacientes(_url, _token = null, _method = 'GET', _body = null
   }
 }
 
-async function searchPaciente() {
+async function searchPerson() {
   const busqueda = document.getElementById('nombreapellido').value;
-  const data = await fetchPacientes(URLPersona + `/search/${busqueda}`);
+  const data = await fetchPerson(URLPersona + `/search/${busqueda}`);
   loadHTML(data);
 }
 
-async function loadPacientes() {
-  const data = await fetchPacientes(URLPersona);
+async function loadPerson() {
+  const data = await fetchPerson(URLPersona);
   loadHTML(data);
 }
 
-async function deletePaciente(id) {
+async function deletePerson(id) {
   Swal.fire({
     title: "¿Está seguro?",
     text: "No podrá recuperar este registro.",
@@ -41,7 +41,7 @@ async function deletePaciente(id) {
   }).then(async (result) => {
     if (result.isConfirmed) {
 
-      const data = await fetchPacientes(URLPersona + `/${id}`, null, 'DELETE', null);
+      const data = await fetchPerson(URLPersona + `/${id}`, null, 'DELETE', null);
 
       if (data.ok) {
         Swal.fire({
@@ -66,14 +66,14 @@ async function deletePaciente(id) {
 const inputSearch = document.getElementById('nombreapellido');
 inputSearch.addEventListener('keyup', async (e) => {
   if (inputSearch.value.length == 0) {
-    loadPacientes();
+    loadPerson();
   } else {
-    searchPaciente();
+    searchPerson();
   }
 });
 
 window.onload = async () => {
-  loadPacientes();
+  loadPerson();
 }
 
 function loadHTML(data) {
@@ -89,8 +89,8 @@ function loadHTML(data) {
                           <span class="person-span-name">${apellido} ${nombre}</span>
                         </a>
                         <span class="person-span-options">
-                          <a href=""><i class="uil uil-edit a-success" id="${id}"></i></a>
-                          <a href="#"><i class="uil uil-trash-alt a-danger" id="${id}"></i></a>
+                          <a href="#" onclick="updatePerson(${id})"><i class="uil uil-edit a-success" id="${id}"></i></a>
+                          <a href="#" onclick="deletePerson(${id})"><i class="uil uil-trash-alt a-danger" id="${id}"></i></a>
                         </span>`
       const li = document.createElement('li');
       li.innerHTML = html_Li;
