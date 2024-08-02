@@ -83,23 +83,17 @@ function loadHTML(data) {
   if (data.ok && data.data != "Empty list") {
     for (paciente of data.data) {
       const { nombre, apellido, id } = paciente;
-      const spanApellido = `<span class="link-name span-space">${apellido} </span>`;
-      const spanNombre = `<span class="link-name">${nombre}</span>`;
-      const spanButton = `
-          <span class="data-list text-button">
-                <a href="./update.html?id=${id}" class="a-update"><i class="uil uil-edit"></i></a>
-                <a href="#" onclick="deletePaciente(${id})" class="a-delete"><i class="uil uil-trash-alt"></i></a>
-          </span>`
 
-      const ahref = document.createElement('a');
-
-      ahref.innerHTML += `<i class="uil uil-user"></i>`;
-      ahref.innerHTML += spanApellido;
-      ahref.innerHTML += spanNombre;
-      ahref.innerHTML += spanButton;
-
+      const html_Li = `<a href="list.html">
+                          <i class="uil uil-user"></i>
+                          <span class="person-span-name">${apellido} ${nombre}</span>
+                        </a>
+                        <span class="person-span-options">
+                          <a href=""><i class="uil uil-edit a-success" id="${id}"></i></a>
+                          <a href="#"><i class="uil uil-trash-alt a-danger" id="${id}"></i></a>
+                        </span>`
       const li = document.createElement('li');
-      li.appendChild(ahref);
+      li.innerHTML = html_Li;
       ulList.appendChild(li);
     }
   }
