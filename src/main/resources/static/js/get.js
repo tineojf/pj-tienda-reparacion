@@ -31,7 +31,7 @@ async function loadPerson() {
 async function deletePerson(id) {
   Swal.fire({
     title: "¿Está seguro?",
-    text: "No podrá recuperar este registro.",
+    text: "No podrá recuperar este trabajador.",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -46,7 +46,7 @@ async function deletePerson(id) {
       if (data.ok) {
         Swal.fire({
           title: "Eliminado!",
-          text: "El registro ha sido eliminado.",
+          text: "El trabajador ha sido eliminado.",
           icon: "success"
         }).then((result) => {
           window.location.reload();
@@ -89,7 +89,7 @@ function loadHTML(data) {
                           <span class="person-span-name">${apellido} ${nombre}</span>
                         </a>
                         <span class="person-span-options">
-                          <a href="#" onclick="updatePerson(${id})"><i class="uil uil-edit a-success" id="${id}"></i></a>
+                          <a href="#" onclick="loadData(${id})"><i class="uil uil-edit a-success" id="${id}"></i></a>
                           <a href="#" onclick="deletePerson(${id})"><i class="uil uil-trash-alt a-danger" id="${id}"></i></a>
                         </span>`
       const li = document.createElement('li');

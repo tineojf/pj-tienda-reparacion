@@ -24,27 +24,27 @@ async function createPaciente() {
   const genero = document.getElementById('genero').value;
   const tutor = document.getElementById('tutor').value;
 
-  const pFormateo = document.getElementById('pFormateo').value;
-  const pLimpieza = document.getElementById('pLimpieza').value;
-  const pDesinfeccion = document.getElementById('pDesinfeccion').value;
-  const pDiagnosticar = document.getElementById('pDiagnosticar').value;
-  const pCambios = document.getElementById('pCambios').value;
+  const pFormateo = document.getElementById('pFormateo').checked;
+  const pLimpieza = document.getElementById('pLimpieza').checked;
+  const pDesinfeccion = document.getElementById('pDesinfeccion').checked;
+  const pDiagnosticar = document.getElementById('pDiagnosticar').checked;
+  const pCambios = document.getElementById('pCambios').checked;
 
-  const nFormateo = document.getElementById('nFormateo').value;
-  const nLimpieza = document.getElementById('nLimpieza').value;
-  const nDesinfeccion = document.getElementById('nDesinfeccion').value;
-  const nDiagnosticar = document.getElementById('nDiagnosticar').value;
-  const nCambios = document.getElementById('nCambios').value;
+  const nFormateo = document.getElementById('nFormateo').checked;
+  const nLimpieza = document.getElementById('nLimpieza').checked;
+  const nDesinfeccion = document.getElementById('nDesinfeccion').checked;
+  const nDiagnosticar = document.getElementById('nDiagnosticar').checked;
+  const nCambios = document.getElementById('nCambios').checked;
 
-  const cFlasheo = document.getElementById('cFlasheo').value;
-  const cBateria = document.getElementById('cBateria').value;
-  const cPantalla = document.getElementById('cPantalla').value;
-  const cVidrio = document.getElementById('cVidrio').value;
+  const cFlasheo = document.getElementById('cFlasheo').checked;
+  const cBateria = document.getElementById('cBateria').checked;
+  const cPantalla = document.getElementById('cPantalla').checked;
+  const cVidrio = document.getElementById('cVidrio').checked;
 
-  const aRecibir = document.getElementById('aRecibir').value;
-  const aPresupuestar = document.getElementById('aPresupuestar').value;
-  const aVenta = document.getElementById('aVenta').value;
-  const aCompra = document.getElementById('aCompra').value;
+  const aRecibir = document.getElementById('aRecibir').checked;
+  const aPresupuestar = document.getElementById('aPresupuestar').checked;
+  const aVenta = document.getElementById('aVenta').checked;
+  const aCompra = document.getElementById('aCompra').checked;
 
   const body = {
     nombre,
@@ -52,24 +52,24 @@ async function createPaciente() {
     celular,
     genero,
     tutor,
-    pFormateo,
-    pLimpieza,
-    pDesinfeccion,
-    pDiagnosticar,
-    pCambios,
-    nFormateo,
-    nLimpieza,
-    nDesinfeccion,
-    nDiagnosticar,
-    nCambios,
-    cFlasheo,
-    cBateria,
-    cPantalla,
-    cVidrio,
-    aRecibir,
-    aPresupuestar,
-    aVenta,
-    aCompra
+    pformateo: pFormateo,
+    plimpieza: pLimpieza,
+    pdesinfeccion: pDesinfeccion,
+    pdiagnosticar: pDiagnosticar,
+    pcambios: pCambios,
+    nformateo: nFormateo,
+    nlimpieza: nLimpieza,
+    ndesinfeccion: nDesinfeccion,
+    ndiagnosticar: nDiagnosticar,
+    ncambios: nCambios,
+    cflasheo: cFlasheo,
+    cbateria: cBateria,
+    cpantalla: cPantalla,
+    cvidrio: cVidrio,
+    arecibir: aRecibir,
+    apresupuestar: aPresupuestar,
+    aventa: aVenta,
+    acompra: aCompra
   };
 
   const URLPersonas = '/personas';

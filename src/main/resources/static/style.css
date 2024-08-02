@@ -164,6 +164,9 @@ hr {
 .menu-items .nav-links li span.person-span-name {
   color: var(--black-light-color);
 }
+.menu-items .nav-links li.li-btn {
+  justify-content: center;
+}
 
 /* Styles */
 nav {
