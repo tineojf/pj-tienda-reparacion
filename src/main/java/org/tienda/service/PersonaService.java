@@ -8,6 +8,7 @@ import org.tienda.exceptions.EntityNotFoundException;
 import org.tienda.repository.PersonaRepository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -51,10 +52,14 @@ public class PersonaService implements IService<PersonaModel> {
         }
 
         Optional<PersonaModel> personaFindByNombre = personaRepository.findByNombre(personaModel.getNombre());
-        Optional<PersonaModel> personaFindByApellido = personaRepository.findByApellido(personaModel.getApellido());
-        if (personaFindByNombre.isPresent() || personaFindByApellido.isPresent()) {
-            throw new EntityAlreadyExistsException("Persona", "nombre o apellido");
+        if (personaFindByNombre.isPresent() && !Objects.equals(personaFindByNombre.get().getId(), personaModel.getId())) {
+            throw new EntityAlreadyExistsException("Persona", "nombre");
         }
+        Optional<PersonaModel> personaFindByApellido = personaRepository.findByApellido(personaModel.getApellido());
+        if (personaFindByApellido.isPresent() && !Objects.equals(personaFindByApellido.get().getId(), personaModel.getId())) {
+            throw new EntityAlreadyExistsException("Persona", "apellido");
+        }
+
 
         return personaRepository.save(personaModel);
     }
