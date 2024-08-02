@@ -127,6 +127,11 @@ hr {
   color: var(--primary-color);
 }
 
+.a-name{
+  text-align: left;
+  font-size: .8rem;
+}
+
 .a-danger {
   color: var(--danger-color);
 }
